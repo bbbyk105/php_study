@@ -1,14 +1,16 @@
-<DOCTYPE html>
+<?php
 
-    <head></head>
+echo (123);
+echo('<br>');
 
-    <body>
-        こちらはhtmlです。
-        <?php
-        echo "こちらはphpです";
+// 全角は文字として認識される。
 
-        // phpinfo();
-        ?>
-    </body>
+echo ("こちらはphpです");
+echo('<br>');
+echo('こんばんは');
+echo('<br>');
+echo('こんば""んは');
 
-    </html />
+
+
+?>
