@@ -1,16 +1,10 @@
 <?php
 
-echo (123);
-echo('<br>');
+// constant 定数
 
-// 全角は文字として認識される。
+const Max = 'テスト';
 
-echo ("こちらはphpです");
-echo('<br>');
-echo('こんばんは');
-echo('<br>');
-echo('こんば""んは');
-
+echo Max;
 
 
 ?>
