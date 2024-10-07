@@ -1,10 +1,10 @@
 <?php
 
-$array_1 =["あああ",2,3];
+$array_1 = ["あああ", 2, 3];
 
-$array_2=[
-    ["赤","青", "黄色"],
-    ["白","紫","黒"]
+$array_2 = [
+    ["赤", "青", "黄色"],
+    ["白", "紫", "黒"]
 ];
 // echo $array[0];
 
@@ -23,7 +23,51 @@ $array_member = [
 echo $array_member['hobby'];
 echo '<pre>';
 var_dump($array_member);
-echo '</pre>'
+echo '</pre>';
+
+$array_member_2 = [
+    'ホンダ' => [
+        'height' => 170,
+        'hobby' => "soccer"
+    ],
+    '香川' => [
+        'height' => 165,
+        'hobby' => 'soccer'
+    ]
+];
+
+echo $array_member_2['香川']['height'];
+
+echo '<pre>';
+var_dump($array_member_2);
+echo '</pre>';
+
+
+$array_member_3 = [
+    '1組' => [
+        'ホンダ' => [
+            'height' => 170,
+            'hobby' => "soccer"
+        ],
+        '香川' => [
+            'height' => 165,
+            'hobby' => 'soccer'
+        ]
+    ],
+    '2組' => [
+        '長友' => [
+            'height' => 160,
+            'hobby' => 'soccer'
+        ],
+        '乾' => [
+            'height' => 168,
+            'hobby' => 'soccer'
+        ]
+    ]
+
+
+];
+
+echo $array_member_3['2組']['長友']['height'];
 
 ?>
-
