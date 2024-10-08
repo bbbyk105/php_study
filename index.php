@@ -1,22 +1,21 @@
 <?php
+// switch
 
-//for while
+$data = 4;
 
-//continue, break
-
-
-for ($i = 0; $i < 10; $i++) {
-    if ($i === 5) {
+switch ($data) {
+    case 1:
+        echo '1です。';
         break;
-    }
-    echo $i;
+    case 2:
+        echo '2です。';
+        break;
+    case 3:
+        echo '3です。';
+        break;
+    default:
+        echo '1-3ではありません。';
+        break;
 }
 
-echo '<br>';
-
-$j = 0;
-while($j < 5){
-    echo $j;
-    $j++;
-}
 ?>
