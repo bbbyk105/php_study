@@ -1,21 +1,36 @@
 <?php
-// switch
 
-$data = 4;
+function test(){
+    echo 'テスト';
+};
 
-switch ($data) {
-    case 1:
-        echo '1です。';
-        break;
-    case 2:
-        echo '2です。';
-        break;
-    case 3:
-        echo '3です。';
-        break;
-    default:
-        echo '1-3ではありません。';
-        break;
+test();
+
+
+$comment = 1;
+
+function getComment($string){
+    echo $string;
 }
+
+getComment($comment);
+
+
+function getNumberOfComment(){
+    return 5;
+}
+
+echo getNumberOfComment();
+
+
+function sumPrice($int1, $int2){
+    $int3 = $int1 + $int2;
+    return $int3;
+}
+
+$total = sumPrice(3,5);
+
+echo $total;
+
 
 ?>
