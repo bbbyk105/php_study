@@ -1,22 +1,36 @@
 <?php
 
+function test(){
+    echo 'テスト';
+};
 
-$members_2 = [
-    'ホンダ' => [
-        'height' => 170,
-        'hobby' => 'サッカー'
-    ],
-    '香川' => [ 
-        'height'  => 165,
-        'hobby' => 'サッカー'
-    ]
-];
+test();
 
-// 多段階の配列
-foreach ($members_2 as $member_1) {
-    foreach($member_1 as $member => $value) {
-        echo $member . 'は' . $value . 'です';
-    };
+
+$comment = 1;
+
+function getComment($string){
+    echo $string;
 }
+
+getComment($comment);
+
+
+function getNumberOfComment(){
+    return 5;
+}
+
+echo getNumberOfComment();
+
+
+function sumPrice($int1, $int2){
+    $int3 = $int1 + $int2;
+    return $int3;
+}
+
+$total = sumPrice(3,5);
+
+echo $total;
+
 
 ?>
