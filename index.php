@@ -1,36 +1,22 @@
 <?php
 
-function test(){
-    echo 'テスト';
-};
+// 文字列の長さ
 
-test();
+// マルチバイト
+// 日本語 SJIS, UTF-8 3-6bite
+$text = 'あいうえお';
 
+// echo strlen($text);
 
-$comment = 1;
-
-function getComment($string){
-    echo $string;
-}
-
-getComment($comment);
+echo mb_strlen($text);
 
 
-function getNumberOfComment(){
-    return 5;
-}
+// 文字列の置換
 
-echo getNumberOfComment();
+$str ='文字列を置換します';
 
+echo str_replace('置換','ちかん', $str);
 
-function sumPrice($int1, $int2){
-    $int3 = $int1 + $int2;
-    return $int3;
-}
-
-$total = sumPrice(3,5);
-
-echo $total;
 
 
 ?>
