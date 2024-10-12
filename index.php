@@ -1,36 +1,19 @@
 <?php
 
-function test(){
-    echo 'テスト';
-};
+$postalCode = '123-4567';
 
-test();
+function checkPostalCode($str){
+    $replaced = str_replace('-','',$str);
+    $length = strlen($replaced);
 
+    if($length === 7){
+        return true;
+    }
+    return false;
 
-$comment = 1;
-
-function getComment($string){
-    echo $string;
 }
+var_dump(checkPostalCode($postalCode));
 
-getComment($comment);
-
-
-function getNumberOfComment(){
-    return 5;
-}
-
-echo getNumberOfComment();
-
-
-function sumPrice($int1, $int2){
-    $int3 = $int1 + $int2;
-    return $int3;
-}
-
-$total = sumPrice(3,5);
-
-echo $total;
-
+// check_postal_code()
 
 ?>
