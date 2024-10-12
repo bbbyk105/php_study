@@ -1,14 +1,19 @@
 <?php
-// 配列についかする
-$array = ['りんご', 'みかん'];
 
-array_push($array, 'ブドウ','なし');
+$postalCode = '123-4567';
 
-echo '<pre>';
-var_dump($array);
-echo '<pre>'
+function checkPostalCode($str){
+    $replaced = str_replace('-','',$str);
+    $length = strlen($replaced);
 
+    if($length === 7){
+        return true;
+    }
+    return false;
 
+}
+var_dump(checkPostalCode($postalCode));
 
+// check_postal_code()
 
 ?>
