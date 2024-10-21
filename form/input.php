@@ -1,11 +1,14 @@
 <?php
 session_start();
 
+require 'validation.php';
+
 header('X-FRAME-OPTIONS:DENY');
 
 $pageFlag = 0;
+$errors = validation($_POST);
 
-if (!empty($_POST['btn_confirm'])) {
+if (!empty($_POST['btn_confirm']) && empty($errors)) {
     $pageFlag = 1;
 }
 if (!empty($_POST['btn_submit'])) {
@@ -36,6 +39,14 @@ function h($str)
 
         $token = $_SESSION['csrfToken'];
         ?>
+
+        <?php if (!empty($errors) && !empty($_POST['btn_confirm'])): ?>
+            <ul>
+                <?php foreach($errors as $error): ?>
+                    <li><?php echo h($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
 
         <form method="POST" action="input.php">
             氏名
@@ -68,13 +79,11 @@ function h($str)
             <input type="checkbox" name="caution" value="1" <?php echo (isset($_POST["caution"]) && $_POST["caution"] == "1") ? 'checked' : ''; ?>>注意事項にチェックしてください
             <br>
             <input type="submit" name="btn_confirm" value="確認する">
-            <input type="hidden" name="csrf" value="<?php echo $token; ?>">
+            <input type="hidden" name="csrf" value="<?php echo h($token); ?>">
         </form>
 
-    <?php endif; ?>
-
-    <?php if ($pageFlag === 1): ?>
-        <?php if (isset($_POST['csrf']) && $_POST['csrf'] === $_SESSION['csrfToken']) : ?>
+    <?php elseif ($pageFlag === 1): ?>
+        <?php if (isset($_POST['csrf']) && $_POST['csrf'] === $_SESSION['csrfToken']): ?>
             <form method="POST" action="input.php">
                 氏名
                 <?php echo h($_POST["your_name"]); ?>
@@ -114,10 +123,9 @@ function h($str)
         <?php else: ?>
             <p>不正なアクセスです。</p>
         <?php endif; ?>
-    <?php endif; ?>
 
-    <?php if ($pageFlag === 2): ?>
-        <?php if (isset($_POST['csrf']) && $_POST['csrf'] === $_SESSION['csrfToken']) : ?>
+    <?php elseif ($pageFlag === 2): ?>
+        <?php if (isset($_POST['csrf']) && $_POST['csrf'] === $_SESSION['csrfToken']): ?>
             <p>送信が完了しました。</p>
             <?php unset($_SESSION['csrfToken']); ?>
         <?php else: ?>
